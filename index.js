@@ -22,7 +22,7 @@ let movies =
 ]
 
 app.get("/", (req, res) => {
-    res.send("Welcome Bitches!");
+    res.send(movies);
 });
 
 app.get("/movies", (req, res) => {
