@@ -3,23 +3,23 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
+const port = process.env.PORT||3001
 
 let movies = 
 [
-{
-    id: 1,
-    judul: "frozen",
-    tahun: 2019
-},
-{
-    id : 2,
-    judul: "joker",
-    tahun: 2019
-}
+    {
+        id: 1,
+        judul: "frozen",
+        tahun: 2019
+    },
+    {
+        id : 2,
+        judul: "joker",
+        tahun: 2019
+    }
 ]
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
     res.send(movies);
@@ -87,4 +87,4 @@ app.get("/movies/:id", (req, res) => {
 
     })
 
-app.listen(3001, () => console.log(`check to port + ${process.env.PORT}`));
+app.listen(port, () => console.log(`check to port + ${process.env.PORT}`));
